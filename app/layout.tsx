@@ -3,6 +3,8 @@ import { Inter, Outfit, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { LanguageProvider } from '@/context/LanguageContext';
+import { ThemeProvider } from '@/context/ThemeContext';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 
 const sans = Inter({
@@ -43,13 +45,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className="scroll-smooth">
+    <html lang="tr" className="scroll-smooth dark" suppressHydrationWarning>
       <body
-        className={`${sans.variable} ${mono.variable} ${outfit.variable} font-sans bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground`}
+        className={`${sans.variable} ${mono.variable} ${outfit.variable} font-sans bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground transition-colors duration-300`}
       >
-        <Navbar />
-        <main className="min-h-screen flex flex-col">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <LanguageProvider>
+            <Navbar />
+            <main className="min-h-screen flex flex-col">{children}</main>
+            <Footer />
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -3,20 +3,24 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
+import { LanguageToggle } from '@/components/ui/LanguageToggle';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
-
-const NAV_LINKS = [
-    { href: '#about', label: PORTFOLIO_DATA.ui.nav.about },
-    { href: '#skills', label: PORTFOLIO_DATA.ui.nav.skills },
-    { href: '#projects', label: PORTFOLIO_DATA.ui.nav.projects },
-    { href: '#contact', label: PORTFOLIO_DATA.ui.nav.contact },
-];
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const { t } = useLanguage();
+
+    const NAV_LINKS = [
+        { href: '#about', label: t('nav.about') },
+        { href: '#skills', label: t('nav.skills') },
+        { href: '#projects', label: t('nav.projects') },
+        { href: '#contact', label: t('nav.contact') },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -61,16 +65,22 @@ export function Navbar() {
                         >
                             GitHub
                         </a>
+                        <ThemeToggle />
+                        <LanguageToggle />
                     </nav>
 
                     {/* Mobile Menu Toggle */}
-                    <button
-                        className="md:hidden text-foreground hover:text-primary transition-colors"
-                        onClick={() => setIsOpen(!isOpen)}
-                        aria-label="Menüyü aç/kapat"
-                    >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    <div className="md:hidden flex items-center gap-3">
+                        <ThemeToggle />
+                        <LanguageToggle />
+                        <button
+                            className="text-foreground hover:text-primary transition-colors"
+                            onClick={() => setIsOpen(!isOpen)}
+                            aria-label="Menüyü aç/kapat"
+                        >
+                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
             </Container>
 

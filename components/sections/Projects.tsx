@@ -3,11 +3,35 @@
 import { useState, useRef, MouseEvent } from 'react';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { useLanguage } from '@/context/LanguageContext';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 import { Github, Folder, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function Projects() {
+    const { t } = useLanguage();
+
+    const projects = [
+        {
+            title: t('project1.title'),
+            description: t('project1.description'),
+            tech: ['Python', 'FastAPI', 'NLP', 'Scikit-learn', 'PostgreSQL/MongoDB'],
+            github: 'https://github.com/suleymanssardogan',
+        },
+        {
+            title: t('project2.title'),
+            description: t('project2.description'),
+            tech: ['AWS', 'DevOps', 'Cloud Architecture', 'CI/CD'],
+            github: 'https://github.com/selmanmoon/aws-zero-to-yeto',
+        },
+        {
+            title: t('project3.title'),
+            description: t('project3.description'),
+            tech: ['Python', 'Flask', 'Docker', 'OCR', 'Computer Vision'],
+            github: 'https://github.com/suleymanssardogan/Pytesseract-with-Python-OCR-',
+        },
+    ];
+
     return (
         <Section id="projects" className="relative overflow-hidden">
             {/* Decorative Pattern */}
@@ -16,26 +40,29 @@ export function Projects() {
             <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
                 <div>
                     <h2 className="text-3xl font-bold flex items-center gap-2 mb-2">
-                        <span className="text-primary/60">03.</span> {PORTFOLIO_DATA.ui.projects.title}
+                        <span className="font-mono text-primary/60">03.</span>
+                        <span className="bg-gradient-to-r from-foreground to-primary/80 bg-clip-text text-transparent">
+                            {t('projects.title')}
+                        </span>
                     </h2>
-                    <p className="text-muted-foreground max-w-xl">{PORTFOLIO_DATA.ui.projects.subtitle}</p>
+                    <p className="text-muted-foreground max-w-xl">{t('projects.subtitle')}</p>
                 </div>
                 <div className="hidden md:block">
                     <Button variant="outline" size="sm" href={PORTFOLIO_DATA.personal.github} target="_blank">
-                        {PORTFOLIO_DATA.ui.projects.viewArchive} <ArrowRight className="ml-2 h-4 w-4" />
+                        {t('projects.viewArchive')} <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {PORTFOLIO_DATA.projects.map((project, idx) => (
+                {projects.map((project, idx) => (
                     <ProjectCard key={project.title} project={project} index={idx} />
                 ))}
             </div>
 
             <div className="mt-12 text-center md:hidden">
                 <Button variant="outline" href={PORTFOLIO_DATA.personal.github} target="_blank">
-                    {PORTFOLIO_DATA.ui.projects.viewArchive} <ArrowRight className="ml-2 h-4 w-4" />
+                    {t('projects.viewArchive')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
             </div>
         </Section>
@@ -46,7 +73,12 @@ function ProjectCard({
     project,
     index,
 }: {
-    project: (typeof PORTFOLIO_DATA.projects)[0];
+    project: {
+        title: string;
+        description: string;
+        tech: string[];
+        github: string;
+    };
     index: number;
 }) {
     const divRef = useRef<HTMLDivElement>(null);
@@ -73,7 +105,7 @@ function ProjectCard({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col justify-between bg-card p-8 rounded-xl border border-border/50 overflow-hidden"
+            className="group relative flex flex-col justify-between bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-border/50 overflow-hidden"
         >
             {/* Spotlight Canvas */}
             <div
@@ -97,7 +129,7 @@ function ProjectCard({
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-muted-foreground hover:text-primary transition-colors"
-                                aria-label="GitHub Linki"
+                                aria-label="GitHub Link"
                             >
                                 <Github size={22} />
                             </a>

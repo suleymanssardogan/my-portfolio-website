@@ -30,8 +30,8 @@ export const PORTFOLIO_DATA = {
         languages: ["Python", "C#", "C", "SQL", "JavaScript"],
         ml_ai: ["TensorFlow", "Keras", "Derin Öğrenme (CNN)", "Bilgisayarlı Görü", "Pandas", "NumPy", "NLP"],
         cloud_devops: ["AWS", "Docker", "Git/GitHub", "Linux"],
-        web: ["FastAPI", "Flask", "RESTful API", ".NET", "React", "Next.js"],
-        tools: ["MS SQL Server", "MySQL", "MongoDB", "Tableau", "Google Colab"],
+        web: ["FastAPI", "RESTful API", ".NET"],
+        tools: ["MS SQL Server", "MySQL", "MongoDB", "Supabase", "Tableau"],
     },
     projects: [
         {
