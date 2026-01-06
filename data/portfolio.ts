@@ -28,7 +28,7 @@ export const PORTFOLIO_DATA = {
     ],
     skills: {
         languages: ["Python", "C#", "C", "SQL", "JavaScript"],
-        ml_ai: ["TensorFlow", "Keras", "Derin Öğrenme (CNN)", "Bilgisayarlı Görü", "Pandas", "NumPy", "NLP"],
+        ml_ai: ["TensorFlow", "Keras", "Derin Öğrenme (CNN)", "Bilgisayarlı Görü", "Pandas", "NumPy", "Machine Learning"],
         cloud_devops: ["AWS", "Docker", "Git/GitHub", "Linux"],
         web: ["FastAPI", "RESTful API", ".NET"],
         tools: ["MS SQL Server", "MySQL", "MongoDB", "Supabase", "Tableau"],

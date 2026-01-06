@@ -11,8 +11,8 @@
   --popover: #0f0f11;
   --popover-foreground: #f0f0f0;
 
-  /* Modern Blue with slight purple tint - more unique */
-  --primary: #6366f1;
+  /* Electric Blue for bold, expensive feel */
+  --primary: #3b82f6;
   --primary-foreground: #ffffff;
 
   --secondary: #27272a;
@@ -37,32 +37,34 @@
 /* Light Mode Theme */
 .light {
   --background: #fafafa;
-  --foreground: #18181b;
+  --foreground: #020617;
+  /* Very dark slate, almost black */
 
   --card: #ffffff;
-  --card-foreground: #18181b;
+  --card-foreground: #020617;
 
   --popover: #ffffff;
-  --popover-foreground: #18181b;
+  --popover-foreground: #020617;
 
-  --primary: #6366f1;
+  --primary: #2563eb;
+  /* Blue 600 - Better contrast on white */
   --primary-foreground: #ffffff;
 
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
 
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
 
-  --accent: #e4e4e7;
-  --accent-foreground: #18181b;
+  --accent: #e2e8f0;
+  --accent-foreground: #0f172a;
 
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
 
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #6366f1;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #2563eb;
 }
 
 @theme {

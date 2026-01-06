@@ -90,6 +90,12 @@ const translations: Record<Language, Record<string, string>> = {
         'cert3.title': 'Machine Learning Fundamentals',
         'cert3.issuer': 'Stanford Online',
         'cert3.date': '2024',
+        'cert4.title': 'Google Advanced Data Analytics Specialization',
+        'cert4.issuer': 'Google',
+        'cert4.date': 'Ağustos 2025',
+        'cert5.title': 'Derin Öğrenmeye Giriş',
+        'cert5.issuer': 'BTK Akademi',
+        'cert5.date': 'Kasım 2025',
     },
     en: {
         // Navigation
@@ -167,6 +173,12 @@ const translations: Record<Language, Record<string, string>> = {
         'cert3.title': 'Machine Learning Fundamentals',
         'cert3.issuer': 'Stanford Online',
         'cert3.date': '2024',
+        'cert4.title': 'Google Advanced Data Analytics Specialization',
+        'cert4.issuer': 'Google',
+        'cert4.date': 'August 2025',
+        'cert5.title': 'Introduction to Deep Learning',
+        'cert5.issuer': 'BTK Akademi',
+        'cert5.date': 'November 2025',
     },
 };
 

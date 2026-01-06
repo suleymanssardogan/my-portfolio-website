@@ -90,12 +90,12 @@ export function Contact() {
 
     const inputStyles = `
         w-full px-4 py-3 rounded-xl
-        bg-background/50 backdrop-blur-sm
-        border border-border/50
-        text-foreground placeholder:text-muted-foreground/50
-        focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary
-        transition-all duration-300
-        hover:border-primary/30
+        bg-white/50 dark:bg-background/50 backdrop-blur-sm
+        border border-gray-200 dark:border-border/50
+        text-gray-900 dark:text-foreground placeholder:text-gray-400 dark:placeholder:text-muted-foreground/50
+        focus:outline-none focus:ring-2 focus:ring-blue-500/50 dark:focus:ring-primary/50 focus:border-blue-500 dark:focus:border-primary
+        transition-all duration-300 highlight-white/5
+        hover:border-blue-500/30 dark:hover:border-primary/30
     `;
 
     return (
@@ -111,9 +111,9 @@ export function Contact() {
                 className="max-w-4xl mx-auto"
             >
                 <div className="text-center mb-12">
-                    <p className="text-primary font-mono mb-4">04. {t('contact.preTitle')}</p>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                        <span className="bg-gradient-to-r from-foreground via-primary to-violet-400 bg-clip-text text-transparent">
+                    <p className="text-primary font-mono mb-4">05. {t('contact.preTitle')}</p>
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-slate-900 dark:text-transparent bg-none">
+                        <span className="dark:bg-gradient-to-r dark:from-sky-400 dark:via-blue-500 dark:to-purple-500 dark:bg-clip-text dark:drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
                             {t('contact.title')}
                         </span>
                     </h2>
@@ -151,7 +151,7 @@ export function Contact() {
                                     onChange={handleChange}
                                     required
                                     className={inputStyles}
-                                    placeholder="John Doe"
+                                    placeholder={language === 'tr' ? 'Adınız Soyadınız' : 'Full Name'}
                                 />
                             </div>
                             <div>
@@ -166,7 +166,7 @@ export function Contact() {
                                     onChange={handleChange}
                                     required
                                     className={inputStyles}
-                                    placeholder="john@example.com"
+                                    placeholder={language === 'tr' ? 'ornek@email.com' : 'example@domain.com'}
                                 />
                             </div>
                         </div>
@@ -266,8 +266,8 @@ export function Contact() {
                                     href={`mailto:${PORTFOLIO_DATA.personal.email}`}
                                     className="flex items-center gap-4 p-4 rounded-xl bg-background/30 hover:bg-primary/10 border border-border/30 hover:border-primary/30 transition-all duration-300 group"
                                 >
-                                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                        <Mail className="w-6 h-6 text-primary" />
+                                    <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-primary/10 flex items-center justify-center group-hover:bg-blue-100 dark:group-hover:bg-primary/20 transition-colors">
+                                        <Mail className="w-6 h-6 text-blue-600 dark:text-primary" />
                                     </div>
                                     <div>
                                         <p className="font-medium text-foreground">Email</p>
@@ -281,8 +281,8 @@ export function Contact() {
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-4 p-4 rounded-xl bg-background/30 hover:bg-primary/10 border border-border/30 hover:border-primary/30 transition-all duration-300 group"
                                 >
-                                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                                        <Linkedin className="w-6 h-6 text-primary" />
+                                    <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-primary/10 flex items-center justify-center group-hover:bg-blue-100 dark:group-hover:bg-primary/20 transition-colors">
+                                        <Linkedin className="w-6 h-6 text-blue-600 dark:text-primary" />
                                     </div>
                                     <div>
                                         <p className="font-medium text-foreground">LinkedIn</p>
@@ -295,14 +295,7 @@ export function Contact() {
                         </div>
 
                         {/* Quick Response Note */}
-                        <div className="p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-violet-500/5 border border-primary/10">
-                            <p className="text-muted-foreground text-sm leading-relaxed">
-                                💬 {language === 'tr'
-                                    ? 'Genellikle 24-48 saat içinde yanıt veririm. Acil konular için LinkedIn üzerinden ulaşabilirsiniz.'
-                                    : 'I usually respond within 24-48 hours. For urgent matters, feel free to reach out via LinkedIn.'
-                                }
-                            </p>
-                        </div>
+
                     </motion.div>
                 </div>
             </motion.div>

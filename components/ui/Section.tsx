@@ -1,27 +1,21 @@
-import { HTMLAttributes, forwardRef } from 'react';
-import { cn } from '@/lib/utils';
-import { Container } from './Container';
+'use client';
 
-interface SectionProps extends HTMLAttributes<HTMLElement> {
-    container?: boolean;
+import { ReactNode } from 'react';
+import { Container } from './Container';
+import { cn } from '@/lib/utils';
+
+interface SectionProps {
+    id?: string;
+    className?: string;
+    children: ReactNode;
 }
 
-const Section = forwardRef<HTMLElement, SectionProps>(
-    ({ className, children, container = true, ...props }, ref) => {
-        const content = container ? <Container>{children}</Container> : children;
-
-        return (
-            <section
-                ref={ref}
-                className={cn("py-16 md:py-24", className)}
-                {...props}
-            >
-                {content}
-            </section>
-        );
-    }
-);
-
-Section.displayName = "Section";
-
-export { Section };
+export function Section({ id, className, children }: SectionProps) {
+    return (
+        <section id={id} className={cn("py-20 md:py-32", className)}>
+            <Container>
+                {children}
+            </Container>
+        </section>
+    );
+}

@@ -16,24 +16,17 @@ interface Certification {
 
 const certifications: Certification[] = [
     {
-        id: 'cert1',
-        titleKey: 'cert1.title',
-        issuerKey: 'cert1.issuer',
-        dateKey: 'cert1.date',
-        credentialUrl: '#', // Add your actual credential URL
-    },
-    {
-        id: 'cert2',
-        titleKey: 'cert2.title',
-        issuerKey: 'cert2.issuer',
-        dateKey: 'cert2.date',
+        id: 'cert5',
+        titleKey: 'cert5.title',
+        issuerKey: 'cert5.issuer',
+        dateKey: 'cert5.date',
         credentialUrl: '#',
     },
     {
-        id: 'cert3',
-        titleKey: 'cert3.title',
-        issuerKey: 'cert3.issuer',
-        dateKey: 'cert3.date',
+        id: 'cert4',
+        titleKey: 'cert4.title',
+        issuerKey: 'cert4.issuer',
+        dateKey: 'cert4.date',
         credentialUrl: '#',
     },
 ];
@@ -77,9 +70,9 @@ export function Certifications() {
                 transition={{ duration: 0.5 }}
                 className="text-center mb-12"
             >
-                <p className="text-primary font-mono mb-4">05. {labels.title}</p>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                    <span className="bg-gradient-to-r from-foreground via-primary to-violet-400 bg-clip-text text-transparent">
+                <p className="text-primary font-mono mb-4">04. {labels.title}</p>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-slate-900 dark:text-transparent bg-none">
+                    <span className="dark:bg-gradient-to-r dark:from-sky-400 dark:via-blue-500 dark:to-purple-500 dark:bg-clip-text dark:drop-shadow-[0_0_10px_rgba(59,130,246,0.3)]">
                         {labels.title}
                     </span>
                 </h2>
@@ -99,15 +92,15 @@ export function Certifications() {
                     <motion.div
                         key={cert.id}
                         variants={itemVariants}
-                        className="group relative p-6 rounded-2xl bg-card/30 backdrop-blur-sm border border-border/30 hover:border-primary/30 transition-all duration-300"
+                        className="group relative p-6 rounded-2xl bg-white dark:bg-card/30 backdrop-blur-sm border border-gray-200 dark:border-border/30 hover:border-blue-500/30 dark:hover:border-primary/30 transition-all duration-300 shadow-sm"
                     >
                         {/* Glow Effect */}
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                         <div className="relative z-10">
                             {/* Icon */}
-                            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                                <Award className="w-6 h-6 text-primary" />
+                            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-blue-100 dark:group-hover:bg-primary/20 transition-colors">
+                                <Award className="w-6 h-6 text-blue-600 dark:text-primary" />
                             </div>
 
                             {/* Title */}
@@ -144,18 +137,7 @@ export function Certifications() {
             </motion.div>
 
             {/* Add More Certifications Note */}
-            <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="text-center text-muted-foreground text-sm mt-8"
-            >
-                {language === 'tr'
-                    ? '🎯 Sürekli öğrenmeye ve kendimi geliştirmeye devam ediyorum!'
-                    : '🎯 Continuously learning and improving myself!'
-                }
-            </motion.p>
+
         </Section>
     );
 }

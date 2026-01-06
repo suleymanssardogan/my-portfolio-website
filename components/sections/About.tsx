@@ -40,7 +40,7 @@ export function About() {
                 <div>
                     <h2 className="text-3xl font-bold mb-6 flex items-center gap-2">
                         <span className="font-mono text-primary/60">01.</span>
-                        <span className="bg-gradient-to-r from-foreground to-primary/80 bg-clip-text text-transparent">
+                        <span className="text-slate-900 dark:text-transparent bg-none dark:bg-gradient-to-r dark:from-sky-400 dark:via-blue-500 dark:to-purple-500 dark:bg-clip-text">
                             {t('about.title')}
                         </span>
                     </h2>

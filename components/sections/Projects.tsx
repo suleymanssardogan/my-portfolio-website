@@ -41,7 +41,7 @@ export function Projects() {
                 <div>
                     <h2 className="text-3xl font-bold flex items-center gap-2 mb-2">
                         <span className="font-mono text-primary/60">03.</span>
-                        <span className="bg-gradient-to-r from-foreground to-primary/80 bg-clip-text text-transparent">
+                        <span className="text-slate-900 dark:text-transparent bg-none dark:bg-gradient-to-r dark:from-sky-400 dark:via-blue-500 dark:to-purple-500 dark:bg-clip-text">
                             {t('projects.title')}
                         </span>
                     </h2>
@@ -105,7 +105,7 @@ function ProjectCard({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="group relative flex flex-col justify-between bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-border/50 overflow-hidden"
+            className="group relative flex flex-col justify-between bg-white dark:bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-gray-200 dark:border-border/50 overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
         >
             {/* Spotlight Canvas */}
             <div
@@ -145,9 +145,9 @@ function ProjectCard({
                     {project.description}
                 </p>
 
-                <ul className="flex flex-wrap gap-2 mt-auto text-xs font-mono text-primary/80">
+                <ul className="flex flex-wrap gap-2 mt-auto text-xs font-mono text-blue-700 dark:text-primary/80">
                     {project.tech.map((t) => (
-                        <li key={t} className="bg-secondary/50 px-2 py-1 rounded border border-border/50">
+                        <li key={t} className="bg-gray-100 dark:bg-secondary/50 px-2 py-1 rounded border border-gray-200 dark:border-border/50">
                             {t}
                         </li>
                     ))}
